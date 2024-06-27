@@ -3,12 +3,12 @@ import 'package:flutter_objek_wisata6/screen/berita.dart';
 import 'package:flutter_objek_wisata6/screen/dashboard_screen.dart';
 import 'package:flutter_objek_wisata6/screen/destinasi_alam.dart';
 import 'package:flutter_objek_wisata6/screen/galeri.dart';
-import 'package:flutter_objek_wisata6/screen/kebudayaan.dart';
+import 'package:flutter_objek_wisata6/screen/kebudayaan_detail.dart';
 import 'package:flutter_objek_wisata6/screen/login_screen.dart';
-import 'package:flutter_objek_wisata6/screen/team.dart';
+import 'package:flutter_objek_wisata6/screen/team.dart'; 
 
-class RumahAdatScreen extends StatelessWidget {
-  const RumahAdatScreen({super.key});
+class KebudayaanScreen extends StatelessWidget {
+  const KebudayaanScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,59 +39,62 @@ class RumahAdatScreen extends StatelessWidget {
               height: 55,
             ),
             const SizedBox(width: 10),
-            const Text('DETAIL'),
+            const Text('KEBUDAYAAN'),
           ],
         ),
         centerTitle: true,
         backgroundColor: const Color(0xFFB3E5FC),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16.0),
-                child: Image.asset(
-                  'assets/images/rumah_adat.jpg', // Replace with your image asset
-                  fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RumahAdatScreen()),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Image.asset(
+                    'assets/images/rumah_adat.jpg', // Replace with your image asset
+                    fit: BoxFit.cover,
+                    height: 210,
+                    width: 350,
+                  ),
                 ),
               ),
               const SizedBox(height: 16.0),
-              Container(
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: ClipRRect(
                   borderRadius: BorderRadius.circular(16.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 10.0,
-                      offset: const Offset(0, 5),
-                    ),
-                  ],
+                  child: Image.asset(
+                    'assets/images/baju_adat.jpg', // Replace with your image asset
+                    fit: BoxFit.cover,
+                    height: 210,
+                    width: 350,
+                  ),
                 ),
-                child: Column(
-                  children: [
-                    Text(
-                      'Rumah Adat Selaso Jatuh Kembar',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 8.0),
-                    Text(
-                      'Rumah Adat Daerah Riau Bernama Selaso Jatuh Kembar. Rumah Ini Merupakan Tempat Tinggal Para Datuk, Pemangku Adat. Ruangan Rumah Terdiri Dari: Ruangan Besar Yang Dipergunakan Untuk Tempat Tidur, Ruang Bersila, Anjungan Dan Dapur. Tiang-Tiang Rumah, Sirip Atap, Loteng, Tangga Dan Alasnya Semua Berhiasan Ukiran. Ukirannya Mempunyai Corak Yang Berbeda-Beda Antara Yang Satu Dengan Yang Lainnya. Ruang Adat Ini Dilengkapi Pula Dengan Balai Adat Yang Dipergunakan Untuk Untuk Pertemuan Dan Musyawarah Adat.',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black87,
-                      ),
-                      textAlign: TextAlign.justify,
-                    ),
-                  ],
+              ),
+              const SizedBox(height: 16.0),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16.0),
+                  child: Image.asset(
+                    'assets/images/tari_adat.jpg', // Replace with your image asset
+                    fit: BoxFit.cover,
+                    height: 210,
+                    width: 350,
+                  ),
                 ),
               ),
             ],

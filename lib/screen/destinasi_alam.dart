@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_objek_wisata6/screen/berita.dart';
 import 'package:flutter_objek_wisata6/screen/dashboard_screen.dart';
-import 'package:flutter_objek_wisata6/screen/destinasi_alam.dart';
 import 'package:flutter_objek_wisata6/screen/galeri.dart';
 import 'package:flutter_objek_wisata6/screen/kebudayaan.dart';
 import 'package:flutter_objek_wisata6/screen/login_screen.dart';
 import 'package:flutter_objek_wisata6/screen/team.dart';
 
-class RumahAdatScreen extends StatelessWidget {
-  const RumahAdatScreen({super.key});
-
+class AlamScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,63 +36,23 @@ class RumahAdatScreen extends StatelessWidget {
               height: 55,
             ),
             const SizedBox(width: 10),
-            const Text('DETAIL'),
+            const Text('DESTINASI ALAM'),
           ],
         ),
         centerTitle: true,
         backgroundColor: const Color(0xFFB3E5FC),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16.0),
-                child: Image.asset(
-                  'assets/images/rumah_adat.jpg', // Replace with your image asset
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              Container(
-                padding: const EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(16.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 10.0,
-                      offset: const Offset(0, 5),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      'Rumah Adat Selaso Jatuh Kembar',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 8.0),
-                    Text(
-                      'Rumah Adat Daerah Riau Bernama Selaso Jatuh Kembar. Rumah Ini Merupakan Tempat Tinggal Para Datuk, Pemangku Adat. Ruangan Rumah Terdiri Dari: Ruangan Besar Yang Dipergunakan Untuk Tempat Tidur, Ruang Bersila, Anjungan Dan Dapur. Tiang-Tiang Rumah, Sirip Atap, Loteng, Tangga Dan Alasnya Semua Berhiasan Ukiran. Ukirannya Mempunyai Corak Yang Berbeda-Beda Antara Yang Satu Dengan Yang Lainnya. Ruang Adat Ini Dilengkapi Pula Dengan Balai Adat Yang Dipergunakan Untuk Untuk Pertemuan Dan Musyawarah Adat.',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black87,
-                      ),
-                      textAlign: TextAlign.justify,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 16),
+            _buildImageCard('assets/images/pantai.jpeg'),
+            SizedBox(height: 16),
+            _buildImageCard('assets/images/jembatan.jpg'),
+            SizedBox(height: 16),
+            _buildImageCard('assets/images/air_terjun.png'),
+            SizedBox(height: 16),
+          ],
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -130,6 +87,7 @@ class RumahAdatScreen extends StatelessWidget {
               );
               break;
             case 1:
+              // Navigate to List
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
@@ -151,6 +109,25 @@ class RumahAdatScreen extends StatelessWidget {
               break;
           }
         },
+      ),
+    );
+  }
+
+  Widget _buildImageCard(String imagePath) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        elevation: 5,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }

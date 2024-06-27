@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_objek_wisata6/screen/berita.dart';
+import 'package:flutter_objek_wisata6/screen/login_screen.dart';
 import 'package:flutter_objek_wisata6/screen/team.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MainApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-      home: const BeritaPage(),
+      home: const LoginScreen(),
     );
   }
 }
